@@ -18,8 +18,9 @@ work until its assets have been published.
   targets that exact system version, not arbitrary later releases or PF2e.
 - A saved mechanic character with its native Tech Core class features and
   exocortex choice. Complete the character’s own choices before creating a device.
-- A GM for initial device creation and any initial archetype setup; players
-  need ownership of both their mechanic and the linked device to operate them.
+- The owning player or GM can create a device. Players need Foundry's
+  **Create Actors** permission for their role and must own the mechanic.
+  Operating a linked device requires ownership of both actors.
 
 This is an unofficial software aid, not a replacement for the game’s rules.
 Obtain rules and equipment through their authorized sources. No premium token
@@ -46,18 +47,21 @@ mechanic character; installing this module does not replace it or bulk-edit acto
 
 ## Create your first exocortex
 
-1. As GM, open the saved mechanic’s character sheet and select **Exocortex**
+1. As the owning player or GM, open the saved mechanic’s character sheet and select **Exocortex**
    in its header.
 2. If the character has more than one supported exocortex, choose which to open.
    An existing linked device opens instead of creating a duplicate.
 3. For a new device, enter its name, make the available configuration choices,
    select **Review**, then confirm creation/preparation.
-4. For Mechanic Dedication, confirm the initial setup when prompted. Existing
+4. For Mechanic Dedication, the owner or GM confirms initial setup when prompted. Existing
    choices are retained; setup does not grant unrelated full-class features.
 
 The new device receives its dedicated sheet and default artwork. Its ownership
 is based on the mechanic’s explicit owners, rather than granting access to
-every player. Players can subsequently use their owned linked devices.
+every player. A player who creates the device keeps explicit ownership, including
+when their access to the mechanic comes from its default ownership setting.
+If Foundry denies actor creation, ask the GM to grant **Create Actors** for
+your role or to create the device. The module does not bypass that permission.
 
 ## Prepare and use a drone
 
