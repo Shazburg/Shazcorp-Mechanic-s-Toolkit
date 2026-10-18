@@ -7,10 +7,6 @@ Mechanics and characters with the Mechanic archetype. Create and manage a
 Drone, Mine Network or Turret without turning the mechanic’s character sheet
 into a device tracker.
 
-**Public release status:** the first public package is still undergoing content
-review. The installation URL below is reserved for that release and will not
-work until its assets have been published.
-
 ## Requirements
 
 - Foundry Virtual Tabletop 14; the development test environment uses 14.369.
@@ -28,7 +24,7 @@ pack or animation module is required.
 
 ## Installation
 
-Once the public release is available:
+Install the latest public release using this stable manifest:
 
 1. Back up your world and return Foundry to Setup.
 2. Open **Add-on Modules → Install Module**, paste the manifest URL below and
@@ -38,6 +34,12 @@ Once the public release is available:
 
 ```text
 https://github.com/Shazburg/Shazcorp-Mechanic-s-Toolkit/releases/latest/download/module.json
+```
+
+Release notes, installable packages and matching source archives are available at:
+
+```text
+https://github.com/Shazburg/Shazcorp-Mechanic-s-Toolkit/releases/latest
 ```
 
 The package ID is `shazcorp-mechanics-toolkit`. Users of the former
@@ -83,9 +85,125 @@ not separately on every Strike or Auto-Fire action. Confirm removal of equipment
 when it is no longer needed. Armor upgrades require an available Upgrade Slot
 and compatible installation.
 
+With weapon mounts fitted, use **Get weapon from mechanic** to choose an
+available weapon that fits the free mounts. Confirming transfers one weapon
+from the mechanic and mounts it; it does not create a copy. **Get ammunition
+from mechanic** lists ammunition compatible with mounted weapons and lets you
+choose a quantity. Each weapon also has **Get compatible ammunition**, which
+filters specifically for that weapon. Load transferred ammunition using the
+weapon’s existing loading controls.
+
+Dragging equipment from an owned world actor to the drone also transfers it
+after quantity selection and confirmation; it does not copy the source item.
+Dropped weapons arrive unmounted: use **Mount** to confirm installation.
+Compendium and standalone world-item drops still import items; dragging within
+the same drone still sorts its inventory. Inaccessible or unsupported actor
+sources are refused rather than silently copied. This correction does not
+automatically remove duplicates created by earlier versions.
+
+Use **Install attachment from mechanic** at a weapon to choose carried equipment
+accepted by SF2e’s native compatibility check. Confirm the available attachment
+slots, prerequisites and applicable installation activity; the system’s
+compatibility check does not replace those table decisions.
+
+Installed add-ons appear beside their weapon with rules, chat and native option
+controls. **Adjust Sight** activates a scope for one commanded drone action;
+the adjustment ends at the beginning of the mechanic’s next turn or when the
+weapon is no longer wielded. Outside combat it expires after six seconds of
+world time. **End adjustment** clears it early. Bipod and fireburst mode changes
+also use the drone action tracker. Their manipulate activations require
+**Manual Dexterity**; integrated mounts alone do not provide manipulation.
+
+Confirmed new scope/bipod/fireburst installations start inactive. An older scope
+whose native toggle is already enabled is labelled as untracked; use Adjust
+Sight to start its tracked duration or End adjustment to disable it. The module
+does not silently change existing add-ons when a sheet opens.
+
+**Uninstall & Return** sends a drone attachment back to the mechanic without
+moving its weapon or loaded ammunition. Confirm the removal activity. If a
+detach/transfer stops partway through, inspect both inventories and the saved
+recovery record rather than retrying. Turret upgrades retain their existing
+custom-rig Uninstall destination.
+
+Passive rules continue to use SF2e’s automation. Native toggles/suboptions are
+exposed where available, including on turret upgrades, but turret activation
+action costs and other add-ons’ triggers, saves, charges and non-native effects
+still require table resolution. Rules/chat controls do not claim to execute
+those effects. Requirements such as bipod placement and movement restrictions
+remain part of the item's rules, not automatic movement enforcement.
+
+**Return** sends equipment back to the linked mechanic instead of deleting it.
+Returning a mounted weapon confirms the removal activity and carries its
+attachments and loaded ammunition with it. Ammunition merely selected from a
+separate inventory stack stays with its actor; that selection is cleared when
+the weapon changes actors. Unlink ammunition before returning it if another
+weapon still selects it.
+
 Use **Command Drone on the mechanic**, then resolve attacks and local abilities
 on the drone. Weapon mounts provide capacity, not extra hands or extra actions.
 Support, service and feat-dependent controls appear where supported.
+
+Native actions and feat cards are reused when present. Turret firing is under
+**Remote Weapon Systems**, with native Damage and Critical Damage buttons on
+its attack roll. Ordinary damage and healing use SF2e's normal controls.
+Conditional mine/device effects and combined detonations use a specialized
+resolution control only where needed. Do not apply the same damage twice.
+**Review / Synchronize** removes obsolete module-generated cards without
+removing native feats or your own custom actions. Existing actors are not
+automatically changed. Specializations appear under **Passive Features**.
+
+**Service & Control** groups its controls by purpose: **Command & Movement**,
+**Support & Maneuvers**, **Repair & Reboot**, and **Battery Recharge**. Routine
+repairs are separate from emergency procedures. **Reports & Recovery** is below
+these groups and opens automatically for a pending action or service report;
+GM-only recovery controls remain restricted to the GM.
+
+Pause over a fitted customization, passive feature or Service & Control
+control to see its rules and requirements. Tooltips use Foundry's normal hover
+delay. Keyboard focus also opens help; Escape dismisses it. Reading a fitted
+customization no longer requires opening an item sheet. Operational buttons
+still perform their normal actions when clicked.
+
+Mine and Turret sheets use the same delayed help for configuration, preparation,
+recovery and weapon controls. Pause over fitted or loose turret upgrade names
+for their native rules; installing, uninstalling, posting rules and native
+activation options remain separate operational controls.
+
+Weapon mount and ammunition guidance sits to the right of its readouts or
+controls, stacking below them in narrow windows. For known manipulate add-ons,
+a drone without Manual Dexterity sees a disabled block and an explanatory
+warning; only **Uninstall & Return** remains usable. This does not automatically
+rewrite existing native option states. Passive add-ons are not locked by this
+check. **Mark customization** and **Unmark** explain their grouping-only role
+on hover instead of showing detached instructions.
+
+Mine preparation and detonation guidance and Turret storage, firing and custom
+rig guidance follow the same adjacent layout. Stored or broken turrets show a
+disabled firing block with its reason; array changes remain available. Stored
+turret upgrade activations require deployment, not Manual Dexterity; rules and
+uninstall remain accessible. Mine discard is unavailable with no carried stock,
+and Detonate Mine is unavailable without a live deployed marker. Preparation
+and missing-marker recovery remain available.
+
+## Choose and retain exocortex artwork
+
+Use **Portrait & Token** in the header of an owned Drone, Mine Network or Turret
+sheet. Choose separate existing assets with **Browse**, or paste their paths.
+**Apply Artwork** changes the portrait and prototype token, without changing
+statistics, equipment, ownership, size, position or ring settings.
+
+**Remember** saves the two asset paths on the linked mechanic for future
+exocortices of that type. Existing actors are not silently changed. Rebuilds,
+redeployment and turret array changes retain explicitly chosen art. To update
+already-placed tokens too, select **Also update existing tokens**; this is off
+by default and requires permission to update every matching token.
+
+Owning players and GMs can use the editor. Browsing/uploading still uses normal
+Foundry file permissions; without browsing access, paste a known accessible
+asset path. Opening or cancelling does not change artwork. Resolve interrupted
+device/build/inventory operations before editing. If a cosmetic update stops
+partway through, reopen the editor and apply again; no resources are refunded
+or spent by these controls.
 
 ## Prepare and use a turret
 
@@ -151,8 +269,11 @@ Developed using AI-assisted coding, debugging, and testing.
 ## License and reporting issues
 
 Original software contributions are licensed under **GPLv3**.
+Included game-rule descriptions, data and adaptations are licensed under **ORC**;
+see `ORC-NOTICE.md` in the release archives for source attribution and license scope.
+The 13 bundled generic default token images are offered under **CC0-1.0**.
 See `LICENSE` for the complete GPLv3 text and `NOTICES.md` for scope and asset
-notices. Artwork and third-party materials are not automatically licensed under
+notices. Game content, artwork and third-party materials are not automatically licensed under
 the code’s GPL terms. A software license does not grant rights in Paizo or
 Foundry material. The software is provided without warranty.
 
