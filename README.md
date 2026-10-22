@@ -49,14 +49,90 @@ mechanic character; installing this module does not replace it or bulk-edit acto
 
 ## Create your first exocortex
 
-1. As the owning player or GM, open the saved mechanic’s character sheet and select **Exocortex**
-   in its header.
-2. If the character has more than one supported exocortex, choose which to open.
-   An existing linked device opens instead of creating a duplicate.
-3. For a new device, enter its name, make the available configuration choices,
-   select **Review**, then confirm creation/preparation.
-4. For Mechanic Dedication, the owner or GM confirms initial setup when prompted. Existing
-   choices are retained; setup does not grant unrelated full-class features.
+Start on the **mechanic’s existing character sheet**, not by making a blank
+device actor or changing its sheet type. The sequence is:
+
+**Exocortex → dedication setup (if prompted) → device choices → review → confirm → device sheet.**
+
+The screenshots below were captured in Foundry 14.369 with SF2e 1.6.1 and
+installed Toolkit 0.2.6, using neutral demo characters. They are cropped native
+windows, not reconstructed interfaces. Your theme, window size and available
+choices may differ. The demo choices illustrate the controls, not a recommended
+character build.
+
+### 1. Find the Exocortex control
+
+As the owning player or GM, open the saved mechanic’s character sheet and select
+**Exocortex** in its header controls. Finish the character’s native class or
+Mechanic Dedication choices first. If more than one exocortex is available,
+choose which to open. An existing linked device opens instead of creating a duplicate.
+
+![Native mechanic-sheet header with Exocortex between Sheet and Prototype Token.](assets/quickstart-launcher.png)
+
+### 2. Confirm dedication setup, if prompted
+
+Characters with **Mechanic Dedication** may first see **Mechanic Dedication —
+initial setup**. Choose the dedication’s exocortex, then select **Confirm initial
+setup**. Existing choices are retained; this does not grant unrelated full-class
+features.
+
+**Do not stop here:** this confirms the archetype setup, not creation of the
+device. Continue into the next configuration window. A full-class Mechanic
+normally skips this dedication-only step.
+
+![Native initial dedication dialog showing the Exocortex selector and Confirm initial setup button.](assets/quickstart-dedication.png)
+
+### 3A. Drone: choose, review and create
+
+1. Enter a drone name. Choose **Robot type** and **Base size**.
+2. Fill the available customization slots. Slots, grades and extra choices follow
+   the mechanic’s actual level and feats. Fit weapon mounts if you want an armed drone.
+3. Select **Review New Drone** and inspect the build summary.
+
+![Native drone creation showing name, chassis, size, customization slots and Review New Drone.](assets/quickstart-drone.png)
+
+4. Tick **The mechanic is performing daily preparations. Create and build this
+   drone now.** This enables **Create Reviewed Drone**.
+5. Select **Create Reviewed Drone**. The new linked drone’s dedicated sheet opens,
+   and its preparation report is posted to chat.
+
+The initial-preparation section currently mentions “GM confirmation,” but an
+owning player with **Create Actors** permission can also confirm. **Back** or
+**Cancel** creates nothing; opening the review is not the final confirmation.
+
+![Native reviewed drone build with the initial-preparation checkbox ticked and Create Reviewed Drone enabled.](assets/quickstart-review.png)
+
+### 3B. Turret: choose an array and grade
+
+1. Enter a device name, choose an **Array**, then select an eligible **Weapon grade**.
+2. Commercial is the free starting grade. For a paid upgrade, confirm the grade
+   has been purchased or crafted; the module does not charge credits.
+3. Select **Review**, inspect **Review Exocortex Setup**, then select **Yes** to
+   create the turret. Its dedicated sheet opens.
+
+![Native turret creation showing the separate Array and Weapon grade selectors and Review button.](assets/quickstart-turret.png)
+
+### 3C. Mine Network: name, review and confirm
+
+Enter a network name and select **Review**. Check the capacity, damage, radius
+and DC in **Review Exocortex Setup**, then select **Yes**. There is no array or
+weapon-grade selector in the initial Mine Network dialog; that is expected.
+
+![Native Mine Network creation showing a device name and Review, without turret-only selectors.](assets/quickstart-mine.png)
+
+### 4. Recognize the result and take the next step
+
+The device has its **own linked actor and dedicated sheet**. Here is a newly
+created turret: its header links back to the mechanic, and **Review /
+Synchronize** is available for later configuration updates. A new turret starts
+stored, so use **Deploy Turret on the mechanic** before trying to fire it.
+
+![Top of the native created turret sheet showing the linked mechanic, configuration controls and stored turret status.](assets/quickstart-created.png)
+
+For a Drone, continue with **Mounted Equipment & Supplies** and command it from
+the mechanic. For a Mine Network, use the mechanic’s deployment commands.
+Command actions belong on the mechanic; attacks and device-local abilities
+belong on the exocortex. Simply changing a blank actor’s sheet does not build it.
 
 The new device receives its dedicated sheet and default artwork. Its ownership
 is based on the mechanic’s explicit owners, rather than granting access to
@@ -261,6 +337,16 @@ The module supports level 1–20 progression, but situational actions are not al
 fully automatic. Hits, saves, cover, line of effect, reaction triggers and legal
 movement remain explicit decisions. Its action ledger is not a universal
 three-action tracker. Back up your world and test your configuration before play.
+
+## Building a modified source archive
+
+Download and extract the matching source ZIP from the release page. Its
+JavaScript, templates, styles and assets are unbundled source. After editing,
+run `python3 build.py` from the extracted root; Python 3's standard library is
+the only build requirement. The installable ZIP is written under `dist/`.
+This does not install or publish anything. Keep the supplied license notices
+when redistributing; their separate software, game-content and artwork scopes
+still apply.
 
 ## How this was developed
 
