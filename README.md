@@ -9,9 +9,9 @@ into a device tracker.
 
 ## Requirements
 
-- Foundry Virtual Tabletop 14; the development test environment uses 14.369.
-- The Starfinder Second Edition system, version 1.6.1. The current package
-  targets that exact system version, not arbitrary later releases or PF2e.
+- Foundry Virtual Tabletop 14; verified on 14.370.
+- The Starfinder Second Edition system, version 1.6.1 or 1.7.1. Other versions
+  and PF2e are not supported by the current compatibility checks.
 - A saved mechanic character with its native Tech Core class features and
   exocortex choice. Complete the character’s own choices before creating a device.
 - The owning player or GM can create a device. Players need Foundry's
